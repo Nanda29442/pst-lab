@@ -1,0 +1,26 @@
+import java.util.Comparator;
+
+// Player class structure provided by the platform stub code
+class Player {
+    String name;
+    int score;
+
+    Player(String name, int score) {
+        this.name = name;
+        this.score = score;
+    }
+}
+
+// 1. Checker class implementing Comparator<Player>
+class Checker implements Comparator<Player> {
+    @Override
+    public int compare(Player a, Player b) {
+        // Primary Sort: Decreasing score (b.score - a.score)
+        if (a.score != b.score) {
+            return Integer.compare(b.score, a.score);
+        }
+
+        // Secondary Sort: Alphabetical order by name (a.name vs b.name)
+        return a.name.compareTo(b.name);
+    }
+}
